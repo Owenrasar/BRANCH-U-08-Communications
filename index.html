@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branch U Communication Interface</title>
+    <style>
+        .terminal::-webkit-scrollbar {
+        display: none;
+        }
+        body {
+            background-color: #fdfdfd;
+            color: #f3f3f3;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #dadada;
+            padding: 20px 40px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .navbar img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .navbar h1 {
+            color: #bc4638;
+            font-size: 1.5em;
+            margin: 0;
+        }
+        .terminal {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto;
+            box-shadow: 0 0 20px #80c7c9;
+            height: 80vh;
+            overflow-y: scroll;
+        }
+        .terminal h1 {
+            color: #80c7c9;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .message {
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .corrupted {
+            color: red;
+        }
+        .message a {
+            color: #80c7c9;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .message a:hover {
+            background-color: #80c7c9;
+            color: #0d0d0d;
+        }
+
+        .corrupted-text {
+            unicode-bidi: plaintext;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="logo.png" alt="Logo">
+        <h1>BRANCH U-08 Communication Interface</h1>
+    </div>
+    <div class="terminal">
+
+        <div class="message">
+            [BRANCH Q-13 LOG#462] - 
+            <a href="#" onclick="downloadLog(event)">Open LOGQ13462.txt</a>
+        </div>
+
+        <div class="message corrupted">[BRANCH W-03 LOG#073] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH Y-02 LOG#189] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH Q-13 LOG#461] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH G-11 LOG#011] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH H-08 LOG#092] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH L-07 LOG#157] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH E-11 LOG#064] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH J-08 LOG#220] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH Q-13 LOG#460] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH D-03 LOG#134] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH M-12 LOG#198] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH K-02 LOG#243] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH S-10 LOG#032] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH N-01 LOG#174] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH R-08 LOG#121] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH Q-13 LOG#459] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH I-05 LOG#005] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH F-08 LOG#201] - ERROR: data expunged</div>
+        <div class="message corrupted">[BRANCH T-07 LOG#068] - ERROR: data expunged</div>
+
+        <div class="corrupted-text">⍑⚍⊑⍜⎎⌰⌿⎍</div>
+        
+    </div>
+
+    <script>
+        function downloadLog(event) {
+            event.preventDefault();
+
+            try{
+                window.location.href = LobDecrypter.gpg.run('LOGQ13462.txt');
+                //If this cant be found for some reason and you really need to get into a message, try messing around with 32 digit AES GCM keys,
+                //its what the keygen is supposed to be generating, though it seems to have a mind of its own. I swear the person who
+                //set this thing up used dark magic or something. Anyways, if the progam is allowing you to see this, then your probably good? - Bob from IT
+            } catch{
+           
+            const userResponse = confirm("ERROR: Cannot find LobDecrypter.gpg");
+                
+            if (userResponse) {
+                window.location.href = 'LOGQ13462.txt';
+            }
+        }
+        }
+    </script>
+</body>
+</html>
