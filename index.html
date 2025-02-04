@@ -116,7 +116,7 @@
             event.preventDefault();
 
             try{
-                window.location.href = LobDecrypter.gpg.run('LOGQ13462.txt');
+                window.location.href = LobDecrypter.gpg.run('logs/LOGQ13462.txt');
                 //If this cant be found for some reason and you really need to get into a message, try messing around with 32 digit AES GCM keys,
                 //its what the keygen is supposed to be generating, though it seems to have a mind of its own. I swear the person who
                 //set this thing up used dark magic or something. Anyways, if the progam is allowing you to see this, then your probably good? - Bob from IT
@@ -125,7 +125,7 @@
             const userResponse = confirm("ERROR: Cannot find LobDecrypter.gpg");
                 
             if (userResponse) {
-                window.location.href = 'LOGQ13462.txt';
+                window.location.href = 'logs/LOGQ13462.txt';
             }
         }
         }
